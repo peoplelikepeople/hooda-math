@@ -1,6 +1,5 @@
 ## 🔧 Code: Updated Service Worker Setup
 
-```javascript
 const CACHE_NAME = 'securely-proxy-v1';
 
 // Install: Pre-cache static files
@@ -44,7 +43,7 @@ self.addEventListener('fetch', (event) => {
       .catch((err) => resolve(err));
   }
 });
-```
+
 
 ---
 
