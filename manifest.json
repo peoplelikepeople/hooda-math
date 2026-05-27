@@ -2,7 +2,7 @@
   "name": "Securely Proxy Worker",
   "short_name": "Proxy",
   "display": "minimal-ui",
-  "start_url": "/",
+  "start_url": "bing.com/",
   "description": "Proxy that forces eTLD rewriting via Service Worker",
   "options": {
     "scope": "/",
