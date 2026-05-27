@@ -28,16 +28,16 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       new Promise((resolve) => {
         fetch(url.replace('https://www.securely.com/', 
-'https://bing.com/'))
+'https://example.com/'))
           .then((response) => resolve(response))
           .catch((err) => resolve(err));
       })
     );
   } else {
     // Proxy fallback for everything else
-    const originalUrl = url.startsWith('https://bing.com/')
+    const originalUrl = url.startsWith('https://example.com/')
       ? url
-      : url.replace('https://bing.com/', 'https://www.securely.com/');
+      : url.replace('https://example.com/', 'https://www.securely.com/');
     fetch(originalUrl)
       .then((response) => resolve(response))
       .catch((err) => resolve(err));
@@ -84,13 +84,13 @@ self.addEventListener('fetch', (event) => {
       if (url.startsWith('https://www.securely.com')) {
         // Rewrite URL to proxy domain
         const proxyUrl = url.replace('https://www.securely.com/', 
-'https://bing.com/');
+'https://example.com/');
         fetch(proxyUrl)
           .then((response) => resolve(response))
           .catch((err) => resolve(err));
       } else if (url.startsWith('https://example.com')) {
         // Keep original URL or re-encrypt to secure.com
-        const originalUrl = url.replace('https://bing.com/', 
+        const originalUrl = url.replace('https://example.com/', 
 'https://securely.com/');
         fetch(originalUrl)
           .then((response) => resolve(response))
